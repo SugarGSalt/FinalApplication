@@ -19,25 +19,23 @@ public class GoalDatabaseHelper extends SQLiteOpenHelper{
 
 
     public GoalDatabaseHelper(Context context) {
-        super(context, DB_NAME, null, VERSION);
+        super(context,DB_NAME,null,VERSION);
     }
 
     // 第一次创建数据库时调用
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String sql = "CREATE TABLE " + TB_NAME + " (" +
-                ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                DATE + " TEXT, " +
-                TEXT + " TEXT, " +
-                DONE + " INTEGER)";
+        String sql="CREATE TABLE "+TB_NAME+" " +
+                "("+ID+"INTEGER PRIMARY KEY AUTOINCREMENT,"+DATE+
+                "TEXT,"+TEXT+"TEXT,"+DONE+"INTEGER)";
         db.execSQL(sql);
     }
 
-    // 升级数据库时调用（目前不动）
+    //升级数据库
     @Override
-    public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
+    public void onUpgrade(SQLiteDatabase db,int oldVersion,int newVersion) {
         // 一般用于版本更新时改表结构
-        db.execSQL("DROP TABLE IF EXISTS " + TB_NAME);
+        db.execSQL("DROP TABLE IF EXISTS "+TB_NAME);
         onCreate(db);
     }
 }

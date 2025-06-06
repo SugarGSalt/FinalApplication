@@ -6,11 +6,11 @@ public class Goal {
     public String text;
     public boolean done;
 
-    public Goal(int id, String date, String text, boolean done) {
-        this.id = id;
-        this.date = date;
-        this.text = text;
-        this.done = done;
+    public Goal(int id,String date,String text,boolean done) {
+        this.id=id;
+        this.date=date;
+        this.text=text;
+        this.done=done;
     }
 
 }
